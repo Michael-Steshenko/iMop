@@ -27,13 +27,15 @@ My macbook came with a `§` key instead of a `` ` `` key. I have no use for that
 ```
 #!/bin/zsh
 # remap § to ` and ± to ~
-sudo hidutil property --set '{"UserKeyMapping":
+sudo hidutil property --matching '{"ProductID":0x343}' property --set '{"UserKeyMapping":
     [{"HIDKeyboardModifierMappingSrc":0x700000035,
       "HIDKeyboardModifierMappingDst":0x700000064},
      {"HIDKeyboardModifierMappingSrc":0x700000064,
       "HIDKeyboardModifierMappingDst":0x700000035}]
 }'
 ```
+- Where `ProductId` is the product ID of the keyboard taken from:  
+`Apple icon > About This Mac > System Report > Hardware > SPI > Apple Internal Keyboard`
 - `chmod +x ~/my_custom_scripts/com.michaelsteshenko.remapkeys.sh`
 - `sudo nvim /Library/LaunchDaemons/com.yourusername.remapkeys.plist`
 - paste the following:  
