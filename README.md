@@ -16,7 +16,7 @@ When cloning make sure to clone via HTTPS URL
 
 ### Enable Touch ID for sudo
 - `sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local`  
-- `sudo nano /etc/pam.d/sudo_local`  
+- `sudo nvim /etc/pam.d/sudo_local`  
 - Uncomment `auth       sufficient     pam_tid.so` as per the instructions in the file
 
 ### Swapping built-it keyboard keys
@@ -42,8 +42,8 @@ sudo hidutil property --matching '{"ProductID":0x343}' property --set '{"UserKey
 ```
 - Where `ProductId` is the product ID of the keyboard taken from:  
 `Apple icon > About This Mac > System Report > Hardware > SPI > Apple Internal Keyboard`
-- `chmod +x ~/my_custom_scripts/com.michaelsteshenko.remapkeys.sh`
-- `sudo nvim /Library/LaunchDaemons/com.yourusername.remapkeys.plist`
+- `sudo chmod +x ~/my_custom_scripts/com.michaelsteshenko.remapkeys.sh`
+- `sudo nvim /Library/LaunchDaemons/com.michaelsteshenko.remapkeys.plist`
 - paste the following:  
 ```
 <?xml version="1.0" encoding="UTF-8"?>
