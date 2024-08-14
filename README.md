@@ -67,3 +67,4 @@ sudo hidutil property --matching '{"ProductID":0x343}' property --set '{"UserKey
 `sudo chmod 644 /Library/LaunchDaemons/com.michaelsteshenko.remapkeys.plist`  
 - Load the daemon:  
 `sudo launchctl load -w /Library/LaunchDaemons/com.michaelsteshenko.remapkeys.plist`
+- reboot to test
