@@ -19,7 +19,7 @@ When cloning make sure to clone via HTTPS URL
 - `sudo nvim /etc/pam.d/sudo_local`  
 - Uncomment `auth       sufficient     pam_tid.so` as per the instructions in the file
 
-### Swapping built-it keyboard keys
+### remapping Mac keyboard keys
 My macbook came with a `§` key instead of a `` ` `` key. I have no use for that key. The following instructions place `` ` `` where it belongs and make the extra key next to left shift also act as left shift.  
 
 Taken from here https://apple.stackexchange.com/a/468557 and https://stackoverflow.com/a/58981641/17555452 and modified.  
