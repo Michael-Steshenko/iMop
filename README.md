@@ -27,9 +27,14 @@ The downside of this method is it remaps the keys on user login instead of boot,
 The benefit of this method is we no longer need to give the terminal app ```input monitoring``` permissions, instead we will grant the permission to our Automator app.  
 The .sh script that the Automator app is wrapping is here [here](https://github.com/Michael-Steshenko/iMop/blob/main/remapkeys.sh).  
 
-References I used for the .sh script: https://apple.stackexchange.com/a/468557 and https://stackoverflow.com/a/58981641/17555452 and modified.  
-Hex codes for the keys can be found here: https://developer.apple.com/library/archive/technotes/tn2450/_index.html  
+References I used for the .sh script:  
+- https://apple.stackexchange.com/a/468557  
+- https://stackoverflow.com/a/58981641/17555452
 
+Hex codes for the keys can be found here:  
+- https://developer.apple.com/library/archive/technotes/tn2450/_index.html  
+
+TLDR steps:  
 - Download the [Remap Mac Keys.app](https://github.com/Michael-Steshenko/iMop/blob/main/Remap%20Mac%20Keys%20app.zip) and move it to your Applications folder
 - In ```System settings``` search for ```Login Items``` and add remapkeys.app there
 - Reboot to test
