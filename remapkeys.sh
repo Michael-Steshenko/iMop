@@ -10,6 +10,9 @@ echo "Script started at $(date)" >> /tmp/remapkeys.log
 #exec 1>/tmp/remapkeys.log 2>&1
 # Everything below will go to the file '/tmp/remapkeys.log':
 
+# ProductId is the product ID of the keyboard taken from:
+# Apple icon > About This Mac > System Report > Hardware > SPI > Apple Internal Keyboard
+# Key codes can be found here: https://developer.apple.com/library/archive/technotes/tn2450/_index.html
 hidutil property --matching '{"ProductID":0x343}' property --set '{"UserKeyMapping":
     [{"HIDKeyboardModifierMappingSrc":0x700000035,
       "HIDKeyboardModifierMappingDst":0x7000000E1},
