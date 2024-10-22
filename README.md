@@ -19,6 +19,10 @@ When cloning make sure to clone via HTTPS URL
 - `sudo nvim /etc/pam.d/sudo_local`  
 - Uncomment `auth       sufficient     pam_tid.so` as per the instructions in the file
 
+### Instant dock auto-hide delay and hide animation
+`defaults write com.apple.dock autohide-delay -float 0; defaults write com.apple.dock autohide-time-modifier -int 0; killall Dock`  
+to undo: `defaults delete com.apple.dock "autohide-delay"; defaults delete com.apple.dock "autohide-time-modifier";  killall Dock`  
+
 ### Remapping Mac keyboard keys
 My macbook came with a `§` key instead of a `` ` `` key, I have no use for that key.  
 The following instructions place `` ` `` where it belongs and make the extra key next to left shift also act as left shift.  
