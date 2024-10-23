@@ -21,7 +21,7 @@ When cloning make sure to clone via HTTPS URL
 
 ### Instant dock auto-hide delay and hide animation
 `defaults write com.apple.dock autohide-delay -float 0; defaults write com.apple.dock autohide-time-modifier -int 0; killall Dock`  
-to undo: `defaults delete com.apple.dock "autohide-delay"; defaults delete com.apple.dock "autohide-time-modifier";  killall Dock`  
+to undo: `defaults delete com.apple.dock "autohide-delay"; defaults delete com.apple.dock "autohide-time-modifier"; killall Dock`  
 
 ### Remapping Mac keyboard keys
 My macbook came with a `§` key instead of a `` ` `` key, I have no use for that key.  
