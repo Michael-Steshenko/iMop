@@ -9,6 +9,7 @@ A place for me to keep a set of tools, configurations and installation instructi
 ## Configurations
 
 ### Git
+`brew install git`
 To be able to authenticate via the browser we need to install git-credential-manager 
 `brew install --cask git-credential-manager`  
 When cloning make sure to clone via HTTPS URL
