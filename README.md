@@ -16,7 +16,7 @@ When cloning make sure to clone via HTTPS URL
 
 ### VSCode
 After installing VSCode, we want to add VSCode CLI to path:  
-In VSCode open Fommand Pallete and type `Shell Command: Install 'code' command in PATH`
+In VSCode open Command Pallete and type `Shell Command: Install 'code' command in PATH`
 
 
 ### Enable Touch ID for sudo
