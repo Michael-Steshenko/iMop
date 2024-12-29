@@ -15,7 +15,7 @@ To be able to authenticate via the browser we need to install git-credential-man
 When cloning make sure to clone via HTTPS URL
 
 ### VSCode
-After installing VSCode, we want to install VSCode CLI to path:  
+After installing VSCode, we want to add VSCode CLI to path:  
 In VSCode open Fommand Pallete and type `Shell Command: Install 'code' command in PATH`
 
 
