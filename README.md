@@ -47,3 +47,55 @@ TLDR steps:
 - Download the [Remap Mac Keys.app](https://github.com/Michael-Steshenko/iMop/blob/main/Remap%20Mac%20Keys%20app.zip) and move it to your Applications folder
 - In ```System settings``` search for ```Login Items``` and add remapkeys.app there
 - Reboot to test
+
+### Custom keyboard shortcuts
+
+With non-mac keyboards, the funtion row controls do not work by default.  
+To make it work:
+- Go to System Settings -> Keyboard -> Keyboard Shortcuts -> Function Keys
+- Enable ```Use F1, F2, etc. keys as standard function keys```
+
+Now for each shortcut you want to add, do the following:  
+- Open automator
+- Choose the type of your document: Quick Action
+- Workflow receives: no input
+- in: any application
+- Under actions select: Run AppleScript
+- write your script
+- File -> save, and give the shortcut a name
+- Assign a keyboard shortcut in System Settings -> Keyboard -> Keyboard Shortcuts -> Services -> General
+
+#### Scripts I'm using:
+Volume up (^F3):
+```
+on run {input, parameters}
+    set vol to ((output volume of (get volume settings)) + 5)
+    if (vol > 100) then set vol to 100
+    set volume output volume (vol)
+end run
+```
+Volume down (^F2)
+```
+on run {input, parameters}
+    set vol to ((output volume of (get volume settings)) - 5)
+    if (vol < 0) then set vol to 0
+    set volume output volume (vol)
+end run
+```
+
+Mute/Unmute volume (^F1)
+```
+on run {input, parameters}
+	-- Get current mute state via the System Preferences AppleScript API
+	set currentMute to (do shell script "osascript -e 'output muted of (get volume settings)'")
+	
+	if currentMute is "true" then
+		-- Unmute the system
+		do shell script "osascript -e 'set volume without output muted'"
+	else
+		-- Mute the system
+		do shell script "osascript -e 'set volume with output muted'"
+	end if
+end run
+```
+
