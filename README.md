@@ -68,34 +68,54 @@ Now for each shortcut you want to add, do the following:
 #### Scripts I'm using:
 Volume up (^F3):
 ```
-on run {input, parameters}
-    set vol to ((output volume of (get volume settings)) + 5)
-    if (vol > 100) then set vol to 100
-    set volume output volume (vol)
-end run
+set vol to ((output volume of (get volume settings)) + 5)
+if (vol > 100) then set vol to 100
+set volume output volume (vol)
 ```
+
 Volume down (^F2)
 ```
-on run {input, parameters}
-    set vol to ((output volume of (get volume settings)) - 5)
-    if (vol < 0) then set vol to 0
-    set volume output volume (vol)
-end run
+set vol to ((output volume of (get volume settings)) - 5)
+if (vol < 0) then set vol to 0
+set volume output volume (vol)
 ```
 
 Mute/Unmute volume (^F1)
 ```
-on run {input, parameters}
-	-- Get current mute state via the System Preferences AppleScript API
-	set currentMute to (do shell script "osascript -e 'output muted of (get volume settings)'")
-	
-	if currentMute is "true" then
-		-- Unmute the system
-		do shell script "osascript -e 'set volume without output muted'"
-	else
-		-- Mute the system
-		do shell script "osascript -e 'set volume with output muted'"
-	end if
-end run
+-- Get current mute state via the System Preferences AppleScript API
+set currentMute to (do shell script "osascript -e 'output muted of (get volume settings)'")
+
+if currentMute is "true" then
+	-- Unmute the system
+	do shell script "osascript -e 'set volume without output muted'"
+else
+	-- Mute the system
+	do shell script "osascript -e 'set volume with output muted'"
+end if
 ```
 
+Play/Pause Apple Music (^F6)  
+Unfortunately there's no simple way to simulate the mac keyboard play/pause key, instead we send play/pause to Apple Music
+```
+tell application "Music"
+    if player state is playing then
+        pause
+    else
+        play
+    end if
+end tell
+```
+
+Next track Apple Music (^F7)
+```
+if application "Music" is running then
+	tell application "Music" to next track
+end if
+```
+
+Previous track Apple Music (^F5)
+```
+if application "Music" is running then
+	tell application "Music" to previous track
+end if
+```
