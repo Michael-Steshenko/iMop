@@ -28,6 +28,9 @@ In VSCode open Command Pallete and type `Shell Command: Install 'code' command i
 `defaults write com.apple.dock autohide-delay -float 0; defaults write com.apple.dock autohide-time-modifier -int 0; killall Dock`  
 to undo: `defaults delete com.apple.dock "autohide-delay"; defaults delete com.apple.dock "autohide-time-modifier"; killall Dock`  
 
+### No margins on tiled windows
+System Settings > Desktop & Dock > Windows > Tiled windows have margins (switch off).  
+
 ### Remapping Mac keyboard keys
 My macbook came with a `§` key instead of a `` ` `` key, I have no use for that key.  
 The following instructions place `` ` `` where it belongs and make the extra key next to left shift also act as left shift.  
