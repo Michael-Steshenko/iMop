@@ -6,6 +6,10 @@ A place for me to keep a set of tools, configurations and installation instructi
 ### Neovim
 `brew install neovim`  
 
+### Scroll Reverser
+`brew install scroll-reverser`  
+Disable auto update in setttings, we can update the app through brew which ensures the update goes through the brew security verification process.
+
 ## Configurations
 
 ### Git
