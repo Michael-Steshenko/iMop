@@ -6,6 +6,17 @@ A place for me to keep a set of tools, configurations and installation instructi
 ### Neovim
 `brew install neovim`  
 
+### pyenv - manage multiple python versions
+`brew install pyenv`  
+`pyenv install -l` - list available versions
+`pyenv install 3.8`
+`pyenv init` (one time, and follow instructions for interactive shell)
+
+`pyenv shell <version>` -- select just for current shell session  
+`pyenv local <version>` -- automatically select whenever you are in the current directory (or its subdirectories)  
+`pyenv global <version>` -- select globally for your user account  
+to unset: `pyenv local --unset`  
+
 ### Scroll Reverser
 `brew install scroll-reverser`  
 Disable auto update in setttings, we can update the app through brew which ensures the update goes through the brew security verification process.
