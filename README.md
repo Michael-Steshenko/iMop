@@ -41,6 +41,7 @@ In VSCode open Command Pallete and type `Shell Command: Install 'code' command i
 
 ### Instant dock auto-hide delay and hide animation
 `defaults write com.apple.dock autohide-delay -float 0; defaults write com.apple.dock autohide-time-modifier -int 0; killall Dock`  
+
 to undo: `defaults delete com.apple.dock "autohide-delay"; defaults delete com.apple.dock "autohide-time-modifier"; killall Dock`  
 
 ### No margins on tiled windows
