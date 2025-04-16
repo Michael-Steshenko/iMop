@@ -8,9 +8,9 @@ A place for me to keep a set of tools, configurations and installation instructi
 
 ### pyenv - manage multiple python versions
 `brew install pyenv`  
-`pyenv install -l` - list available versions
-`pyenv install 3.8`
-`pyenv init` (one time, and follow instructions for interactive shell)
+`pyenv install -l` - list available versions  
+`pyenv install 3.8`  
+`pyenv init` (one time, and follow instructions for interactive shell). 
 
 `pyenv shell <version>` -- select just for current shell session  
 `pyenv local <version>` -- automatically select whenever you are in the current directory (or its subdirectories)  
