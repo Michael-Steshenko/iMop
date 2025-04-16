@@ -21,6 +21,9 @@ to unset: `pyenv local --unset`
 `brew install scroll-reverser`  
 Disable auto update in setttings, we can update the app through brew which ensures the update goes through the brew security verification process.
 
+### Better display
+`brew install --cask betterdisplay`
+
 ## Configurations
 
 ### Git
