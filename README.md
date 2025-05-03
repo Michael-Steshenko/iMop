@@ -26,7 +26,7 @@ Disable auto update in setttings, we can update the app through brew which ensur
 
 ### Universal autofill for 1Password
 [Universal autofill](https://support.1password.com/mac-universal-autofill/#autofill-your-mac-login
-) allows you to fill in passwords anywhere in the Mac using a keyboard shortcut (default - cmd + \).  
+) allows you to fill in passwords anywhere in the Mac using a keyboard shortcut (default - cmd + \\).  
 Disable autofill and passwords in MacOs settings completely, 1Password doesn't use those.
 
 ## Configurations
