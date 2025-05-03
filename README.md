@@ -63,7 +63,7 @@ npm() {
     fi
 }
 
-# brew up - full update for brew, brew packages and brew casks -- needs testing when I have updated to do
+# brew up - full update for brew, brew packages and brew casks (applications)
 brew() {
     if [ "$1" = "up" ]; then
 	echo_and_run brew update && echo_and_run brew outdated --greedy && echo_and_run brew upgrade --greedy && echo_and_run brew cleanup
