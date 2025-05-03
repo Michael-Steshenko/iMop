@@ -73,10 +73,22 @@ brew() {
 }
 ```
 
-### Change brew cask default install folder
+### External Storage
+## Change brew cask default install folder
 `nvim ~/.zprofile`  
 add the following line:  
 `export HOMEBREW_CASK_OPTS="--appdir=/Volumes/MSI-M461-1TB/Applications --fontdir=/Library/Fonts"`
+
+## Symlink external Applications folder to System Applications folder
+If you want a custom icon for the external storage Applications folder, add the icon before creating the symlink.  
+
+To set a custom icon:  
+- Copy an application icon from the web (or another folder through CMD + I)
+- `CMD + I` the folder you wish to set an icon for
+- click the icon and paste  
+
+To crate the symlink:  
+`ln -s /Volumes/MSI-M461-1TB/Applications /Applications/ExternalSSD`
 
 ### Git
 `brew install git`  
