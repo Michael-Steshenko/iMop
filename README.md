@@ -73,6 +73,10 @@ brew() {
 }
 ```
 
+### Change brew cask default install folder
+`nvim ~/.zprofile`  
+add the following line:  
+`export HOMEBREW_CASK_OPTS="--appdir=/Volumes/MSI-M461-1TB/Applications --fontdir=/Library/Fonts"`
 
 ### Git
 `brew install git`  
