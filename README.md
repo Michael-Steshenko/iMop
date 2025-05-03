@@ -31,6 +31,23 @@ Disable autofill and passwords in MacOs settings completely, 1Password doesn't u
 
 ## Configurations
 
+### Show full path in terminal (zsh)
+`nvim ~/.zshrc`  
+for custom device name (hostname)  
+
+```
+# update how command line prompt looks, show full file path
+PS1='%n@<your device name> %d %# '
+```
+
+for actual hostname  
+```
+# update how command line prompt looks, show full file path
+PS1='%n@%m %d %# '
+```  
+
+dafa
+dafadf
 ### Git
 `brew install git`  
 To be able to authenticate via the browser we need to install git-credential-manager 
