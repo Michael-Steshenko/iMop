@@ -47,6 +47,7 @@ PS1='%n@%m %d %# '
 ```  
 
 ### Custom commands for ~/.zshrc
+```
 # ------ custom commands ------
 
 echo_and_run() { echo "\$ $*" ; "$@" ; }
@@ -70,6 +71,7 @@ brew() {
         command brew "$@"
     fi
 }
+```
 
 
 ### Git
