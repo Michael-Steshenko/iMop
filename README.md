@@ -46,8 +46,32 @@ for actual hostname
 PS1='%n@%m %d %# '
 ```  
 
-dafa
-dafadf
+### Custom commands for ~/.zshrc
+# ------ custom commands ------
+
+echo_and_run() { echo "\$ $*" ; "$@" ; }
+
+# replace npm build with npm run build
+npm() {
+    if [ "$1" = "build" ]; then
+        shift        # eat the 'build'
+        echo "replacing npm build "$@" with npm run build "$@""
+        npm run build "$@"
+    else
+        command npm "$@"
+    fi
+}
+
+# brew up - full update for brew, brew packages and brew casks -- needs testing when I have updated to do
+brew() {
+    if [ "$1" = "up" ]; then
+	echo_and_run brew update && echo_and_run brew outdated --greedy && echo_and_run brew upgrade --greedy && echo_and_run brew cleanup
+    else
+        command brew "$@"
+    fi
+}
+
+
 ### Git
 `brew install git`  
 To be able to authenticate via the browser we need to install git-credential-manager 
