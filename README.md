@@ -6,6 +6,18 @@ A place for me to keep a set of tools, configurations and installation instructi
 ### Neovim
 `brew install neovim`  
 
+### Karabiner-Elements - keyboard shortcuts  
+
+`brew install --cask karabiner-elements`  
+
+Under `Complex Modifications`:
+- `Add your own rule`
+- paste the contents of [karabiner-elements-rules.json](https://github.com/Michael-Steshenko/iMop/blob/main/karabiner-elements-rules.json)
+- in `Shortcuts` app we create shortcuts for opening apps and bind them to `caps_lock + key`.  
+
+Note: If setting the keyboard shortcut doesn't work inside the `Shorcuts` app we can set it in `System Settings` under:  
+`Keyboard Shortcuts... -> Services -> Shortcuts`
+
 ### pyenv - manage multiple python versions
 `brew install pyenv`  
 `pyenv install -l` - list available versions  
