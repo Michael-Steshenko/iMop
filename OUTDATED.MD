@@ -1,6 +1,6 @@
 ### Remapping Mac keyboard keys
-Note: I now use Karabiner for hyper key shortcuts so it makes sense to use it for remapping the keys as well.  
-Use this if you want a solution with no external dependencies.  
+**NOTE: I now use Karabiner for hyper key shortcuts so it makes sense to use it for remapping the keys as well.  
+Use this if you want a solution with no external dependencies.**  
 
 My macbook came with a `§` key instead of a `` ` `` key, I have no use for that key.  
 The following instructions place `` ` `` where it belongs and make the extra key next to left shift also act as left shift.  
