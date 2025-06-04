@@ -10,6 +10,8 @@ A place for me to keep a set of tools, configurations and installation instructi
 We use Karabiner elements for low-level keyboard remapping, i.e. it captures inputs before they reach the OS.  
 Mainly we want to use Karabiner to set a hyperkey, then we use Hammerspoon to set keyboard shortcuts using the hyperkey.  
 We use Hammerspoon and not native solutions (Shorcuts app / Apple script) because they have a noticable action delay.  
+
+#### Install
 `brew install --cask karabiner-elements`  
 `brew install --cask hamerspoon`
 
