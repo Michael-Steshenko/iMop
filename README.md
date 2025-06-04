@@ -204,3 +204,7 @@ if application "Music" is running then
 	tell application "Music" to previous track
 end if
 ```
+
+## TODO
+- [ ] Use f18 instead of ctrl + cmd + option + shift for hyperkey in Karabiner / Hammerspoon
+- [ ] Move all the music apple script keyboard shortcuts to Hammerspoon, should probably also use hyperkey.
