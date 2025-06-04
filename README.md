@@ -21,7 +21,7 @@ In Karabiner under `Complex Modifications`:
 - paste the contents of [karabiner-elements-rules.json](https://github.com/Michael-Steshenko/iMop/blob/main/karabiner-elements-rules.json)  
 
 #### Configure Hammerspoon
-- copy the [hammerspoon config](https://github.com/Michael-Steshenko/iMop/blob/main/.hammerspoon) to `~/.hammerspoon`
+- copy the [hammerspoon config](https://github.com/Michael-Steshenko/iMop/blob/main/.hammerspoon/init.lua) to `~/.hammerspoon/init.lua`
 
 ### pyenv - manage multiple python versions
 `brew install pyenv`  
