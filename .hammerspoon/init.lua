@@ -67,12 +67,19 @@ teams.callWindow = function()
   local app = teams.ensureApp()
   if not app then return end
 
-  for _, win in ipairs(app:visibleWindows()) do
+  for _, win in ipairs(app:allWindows()) do
     if not teams.firstSeenWindow or win:id() ~= teams.firstSeenWindow:id() then
       return win
     end
   end
   return nil
+end
+
+teams.bringToFront = function(window)
+  if window:isMinimized() then
+    window:unminimize()
+  end
+  window:focus()
 end
 
 -- Launch Teams and focus appropriate window
@@ -88,15 +95,12 @@ hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "T", function()
   local call = teams.callWindow()
 
   if call then
-    call:focus()
+    teams.bringToFront(call)
     if main and call:id() ~= main:id() then
       main:minimize()
     end
   elseif main then
-    if main:isMinimized() then
-      main:unminimize()
-    end
-    main:focus()
+    teams.bringToFront(main)
   end
 end)
 
