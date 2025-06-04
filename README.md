@@ -6,17 +6,20 @@ A place for me to keep a set of tools, configurations and installation instructi
 ### Neovim
 `brew install neovim`  
 
-### Karabiner-Elements - keyboard shortcuts  
-
+### Karabiner-Elements + Hammerspoon keyboard shortcuts   
+We use Karabiner elements for low-level keyboard remapping, i.e. it captures inputs before they reach the OS.  
+Mainly we want to use Karabiner to set a hyperkey, then we use Hammerspoon to set keyboard shortcuts using the hyperkey.  
+We use Hammerspoon and not native solutions (Shorcuts app / Apple script) because they have a noticable action delay.  
 `brew install --cask karabiner-elements`  
+`brew install --cask hamerspoon`
 
-Under `Complex Modifications`:
+#### Configure Karabinar Elements
+In Karabiner under `Complex Modifications`:
 - `Add your own rule`
-- paste the contents of [karabiner-elements-rules.json](https://github.com/Michael-Steshenko/iMop/blob/main/karabiner-elements-rules.json)
-- in `Shortcuts` app we create shortcuts for opening apps and bind them to `caps_lock + key`.  
+- paste the contents of [karabiner-elements-rules.json](https://github.com/Michael-Steshenko/iMop/blob/main/karabiner-elements-rules.json)  
 
-Note: If setting the keyboard shortcut doesn't work inside the `Shorcuts` app we can set it in `System Settings` under:  
-`Keyboard Shortcuts... -> Services -> Shortcuts`
+#### Configure Hammerspoon
+- copy the [hammerspoon config](https://github.com/Michael-Steshenko/iMop/blob/main/.hammerspoon) to `~/.hammerspoon`
 
 ### pyenv - manage multiple python versions
 `brew install pyenv`  
