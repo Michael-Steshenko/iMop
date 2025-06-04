@@ -57,7 +57,7 @@ teams.captureMainWindow = function()
   end)
 end
 
--- First-seen window is out main window
+-- First seen window is our main window
 teams.mainWindow = function()
   return teams.firstSeenWindow
 end
