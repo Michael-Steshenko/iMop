@@ -1,7 +1,7 @@
 {
     "manipulators": [
         {
-            "description": "My shortcuts",
+            "description": "My mappings",
             "from": {
                 "key_code": "caps_lock",
                 "modifiers": { "optional": ["any"] }
