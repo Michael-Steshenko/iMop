@@ -13,7 +13,7 @@ We use Hammerspoon and not native solutions (Shorcuts app / Apple script) becaus
 
 #### Install
 `brew install --cask karabiner-elements`  
-`brew install --cask hamerspoon`
+`brew install --cask hammerspoon`
 
 #### Configure Karabinar Elements
 In Karabiner under `Complex Modifications`:
