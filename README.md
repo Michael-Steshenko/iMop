@@ -57,6 +57,20 @@ To prevent this:
 - In `MacOS shortcuts` sub-tab, remove checkbox from `Enable Mac OS Host Keyboard Shortcuts`
 - In `Fusion Shortcuts` sub-tab and ensure `Minimize Window` shortcut is enabled
 
+#### Switching out of VMWare Fusion Pro
+I want to be able to use modifier keys inside the VM without affecting MacOS.  
+
+By default there are 3 keyboard shortcuts to switch out of VMWare without closing it:
+- `ctrl` + `cmd` + ungrab mouse cursor
+- `cmd` + `m` - minimize window
+- `cmd` + `h` - hide windows  
+  **Note**: VMWare does not allow you to modify those.
+
+Since Karbiner elements is low level remapping, any remapping I make in it will affect both the host and the guest.  
+This means I can write a mapping that maps `some shortcut` to `ctrl` + `cmd` in order to exit the vm.  
+This also means I could reuse the mapping for switching to VMWare as the mapping to switch out, but that mapping can't rely on the hyper key without conflicts or complicated logic, and I want all app switching to be through the hyper key.  
+Taking all of this into account I decided that the few extra key presses i.e. (`cmd` + `h` -> the actual app shortcut I want) is good enough.  
+
 ## Configurations
 
 ### Show full path in terminal (zsh)
