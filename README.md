@@ -48,7 +48,14 @@ Disable autofill and passwords in MacOs settings completely, 1Password doesn't u
 ### VMWare Fusion Pro
 I'm using this over other options because at the time of writing it's the only option that's free and has hardware acceleration.  
 **Note:** As of 21June2025 you cannot install VMWare Fusion through brew, use web installer instead.  
-**Note:** As of 21June2025 clipboard sharing and dragging files between host and guest don't work on Linux guest running KDE with Wayland, so if we want KDE we are forced to use X11, which is inferior. This is a very old bug, so I should probably just use Gnome instead of KDE.
+**Note:** As of 21June2025 clipboard sharing and dragging files between host and guest don't work on Linux guest running KDE with Wayland, so if we want KDE we are forced to use X11, which is inferior. This is a very old bug, so I should probably just use Gnome instead of KDE.  
+
+#### Removing modifier key delay
+By default modifier keys are sent to the host, this can cause delayed actions on the guest, for example pressing cmd to open Gnome activities will be delayed.  
+To prevent this:  
+- Open VMWare settings -> Keyboard and Mouse tab
+- In `MacOS shortcuts` sub-tab, remove checkbox from `Enable Mac OS Host Keyboard Shortcuts`
+- In `Fusion Shortcuts` sub-tab and ensure `Minimize Window` shortcut is enabled
 
 ## Configurations
 
