@@ -42,9 +42,13 @@ Disable auto update in setttings, we can update the app through brew which ensur
 `brew install --cask betterdisplay`
 
 ### Universal autofill for 1Password
-[Universal autofill](https://support.1password.com/mac-universal-autofill/#autofill-your-mac-login
-) allows you to fill in passwords anywhere in the Mac using a keyboard shortcut (default - cmd + \\).  
+[Universal autofill](https://support.1password.com/mac-universal-autofill/#autofill-your-mac-login) allows you to fill in passwords anywhere in the Mac using a keyboard shortcut (default - cmd + \\).  
 Disable autofill and passwords in MacOs settings completely, 1Password doesn't use those.
+
+### VMWare Fusion Pro
+I'm using this over other options because at the time of writing it's the only option that's free and has hardware acceleration.  
+**Note:** As of 21June2025 you cannot install VMWare Fusion through brew, use web installer instead.  
+**Note:** As of 21June2025 clipboard sharing and dragging files between host and guest don't work on Linux guest running KDE with Wayland, so if we want KDE we are forced to use X11, which is inferior. This is a very old bug, so I should probably just use Gnome instead of KDE.
 
 ## Configurations
 
