@@ -29,6 +29,13 @@ In Karabiner under `Complex Modifications`:
 `pyenv install 3.8`  
 `pyenv init` (one time, and follow instructions for interactive shell). 
 
+*Optional*: Add the following to ~/.zshrc:
+```
+alias python=python3
+alias py=python3
+alias pip=pip3
+```
+
 `pyenv shell <version>` -- select just for current shell session  
 `pyenv local <version>` -- automatically select whenever you are in the current directory (or its subdirectories)  
 `pyenv global <version>` -- select globally for your user account  
