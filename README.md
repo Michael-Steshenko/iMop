@@ -21,7 +21,7 @@ In Karabiner under `Complex Modifications`:
 - paste the contents of [karabiner-elements-rules.json](https://github.com/Michael-Steshenko/iMop/blob/main/karabiner-elements-rules.json)
 
 ##### **Optional:** remapping keys for non US keyboard layouts
-On a mac with a European layout the `§` key is replacing the `back tick` key, and there is a smaller shift button with a `backtick` next to it.
+On a mac with a European layout the `§` key is replacing the `backtick` key, and there is a smaller shift button with a `backtick` next to it.
 To map `§` to `backtick` and `backtick` to left shift (extending the left shift key), add the following mappings in Karbiner-Elements:
 <img width="1093" alt="image" src="https://github.com/user-attachments/assets/14e9abc0-fcd9-4f24-8bc4-aca9e88d36e8" />
 
