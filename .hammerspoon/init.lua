@@ -1,3 +1,6 @@
+-- Reverse mice scroll direction, skip touchpads
+require('ScrollReverser')
+
 -- Launch and manage MS Teams windows
 --hs.loadSpoon("ManageTeams")
 --spoon.ManageTeams.init()
