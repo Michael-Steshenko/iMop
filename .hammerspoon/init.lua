@@ -37,6 +37,11 @@ hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "m", function()
   hs.application.launchOrFocus("Mail")
 end)
 
+-- Launch VMWare
+hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "v", function()
+  hs.application.launchOrFocus("VMWare Fusion")
+end)
+
 -- Automatically reload config on save
 function reloadConfig(files)
   hs.reload()
