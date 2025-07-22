@@ -46,10 +46,6 @@ alias pip=pip3
 `pyenv global <version>` -- select globally for your user account  
 to unset: `pyenv local --unset`  
 
-### Scroll Reverser
-`brew install scroll-reverser`  
-Disable auto update in setttings, we can update the app through brew which ensures the update goes through the brew security verification process.
-
 ### Better display
 `brew install --cask betterdisplay`
 
