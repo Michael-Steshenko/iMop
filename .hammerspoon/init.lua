@@ -1,6 +1,6 @@
 -- Launch and manage MS Teams windows
-hs.loadSpoon("ManageTeams")
-spoon.ManageTeams.init()
+--hs.loadSpoon("ManageTeams")
+--spoon.ManageTeams.init()
 
 -- Launch 1Password
 hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "1", function()
