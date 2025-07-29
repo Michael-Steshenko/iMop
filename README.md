@@ -165,16 +165,6 @@ Then run:
 to undo:  
 `defaults delete com.apple.dock "autohide-delay"; defaults delete com.apple.dock "autohide-time-modifier"; killall Dock`  
 
-### No margins on tiled windows
-System Settings > Desktop & Dock > Windows > Tiled windows have margins (switch off).  
-
-### Custom keyboard shortcuts
-
-With non-mac keyboards, the funtion row controls do not work by default.  
-To make it work:
-- Go to System Settings -> Keyboard -> Keyboard Shortcuts -> Function Keys
-- Enable ```Use F1, F2, etc. keys as standard function keys```
-
 Now for each shortcut you want to add, do the following:  
 - Open automator
 - Choose the type of your document: Quick Action
