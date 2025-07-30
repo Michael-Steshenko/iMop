@@ -27,6 +27,7 @@ To map `§` to `backtick` and `backtick` to left shift (extending the left shift
 
 #### Configure Hammerspoon
 - copy the Hammerspoon [folder](https://github.com/Michael-Steshenko/iMop/blob/main/.hammerspoon) to `~/.hammerspoon`
+- `cp ~/.hammerspoon/Config.lua.template ~/.hammerspoon/Config.lua`
 
 ### pyenv - manage multiple python versions
 `brew install pyenv`  
