@@ -32,6 +32,9 @@ On a mac with a European layout the `§` key is replacing the `backtick` key, an
 To map `§` to `backtick` and `backtick` to left shift (extending the left shift key), add the following mappings in Karbiner-Elements:
 <img width="1093" alt="image" src="https://github.com/user-attachments/assets/14e9abc0-fcd9-4f24-8bc4-aca9e88d36e8" />
 
+Then set `Virtual Keyboard` to `ANSI`
+<img width="820" height="302" alt="image" src="https://github.com/user-attachments/assets/2cb4feec-60e1-4910-8b58-86ff937801d9" />
+
 #### Configure Hammerspoon
 
 - clone this repo
