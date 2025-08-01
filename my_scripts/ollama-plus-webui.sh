@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # === Ollama + Open WebUI Controller Script (MacOS) ===
 # This script assumes PROJECT_PATH is configured with:
@@ -49,8 +49,8 @@ if [ "$COMMAND" = "start" ]; then
     echo "🖥️  Starting Open WebUI at:"
     echo "$WEBUI_URL"
     echo ""
-    $WEBUI_CMD
-
+    eval "$WEBUI_CMD"
+    
 elif [ "$COMMAND" = "stop" ]; then
     echo "🛑 Stopping Ollama..."
     brew services stop ollama
