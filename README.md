@@ -34,6 +34,7 @@ To map `§` to `backtick` and `backtick` to left shift (extending the left shift
 
 #### Configure Hammerspoon
 
+- clone this repo
 - run `sh .hammerspoon/install` - this will create a symlink to the `.hammerspoon` folder in `~/.hammerspoon`
 - `cp ~/.hammerspoon/Config.lua.template ~/.hammerspoon/Config.lua`
 
