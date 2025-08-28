@@ -45,6 +45,11 @@ hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "m", function()
   hs.application.launchOrFocus("Mail")
 end)
 
+-- Launch Calendar
+hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "c", function()
+  hs.application.launchOrFocus("Calendar")
+end)
+
 --- Apple Music stuff Hyper + A ---
 local appleMusicKey = "A"
 
