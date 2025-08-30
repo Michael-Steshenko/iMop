@@ -1,9 +1,9 @@
 require('Config')
 
--- Launch MS Teams
-if (not Config.disableTeams) then
+-- Launch MS Teams / Zoom / Discord
+if (Config.messagingAppName) then
   hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "t", function()
-    hs.application.launchOrFocus("Microsoft Teams")
+    hs.application.launchOrFocus(Config.messagingAppName)
     -- switch from main Teams window to a second open teams window if it exists
     -- This is my MacOS settings keybind to switch to other windows of the same app
     hs.eventtap.keyStroke({"ctrl", "alt", "cmd", "shift"}, "space")    
