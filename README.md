@@ -38,7 +38,7 @@ Then set `Virtual Keyboard` to `ANSI`
 #### Configure Hammerspoon
 
 - clone this repo
-- run `sh .hammerspoon/install` - this will create a symlink to the `.hammerspoon` folder in `~/.hammerspoon`
+- run `sh .hammerspoon/install.sh` - this will create a symlink to the `.hammerspoon` folder in `~/.hammerspoon`
 - `cp .hammerspoon/Config.lua.template .hammerspoon/Config.lua`
 
 ### pyenv - manage multiple python versions
