@@ -62,7 +62,7 @@ local function favorite()
   return input
   ]]
   hs.osascript.applescript(script)
-  hs.alert.show("Favorite")
+  hs.alert.show("👍🏻")
 end
 
 local function unfavorite()
@@ -73,7 +73,7 @@ local function unfavorite()
   return input
   ]]
   hs.osascript.applescript(script)
-  hs.alert.show("Unfavorite")
+  hs.alert.show("😑")
 end
 
 local function suggestLess()
@@ -86,7 +86,7 @@ local function suggestLess()
     return input
   ]]
   hs.osascript.applescript(script)
-  hs.alert.show("Suggest less")
+  hs.alert.show("👎🏻")
 end
 
 function appleMusicMode()
