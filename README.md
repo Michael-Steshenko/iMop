@@ -275,3 +275,4 @@ end if
 - [ ] Use f18 instead of ctrl + cmd + option + shift for hyperkey in Karabiner / Hammerspoon
 - [ ] Move all the music apple script keyboard shortcuts to Hammerspoon, should probably also use hyperkey.
 - [ ] Switch to Obsidian for my note taking
+- [ ] When using a keybind to switch to an app with multiple open windows, pressing the keybind again should switch to the next open app window.
