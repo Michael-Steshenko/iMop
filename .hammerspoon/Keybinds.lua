@@ -50,6 +50,13 @@ hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "c", function()
   hs.application.launchOrFocus("Calendar")
 end)
 
+--- PWA Apps ---
+-- Launch GitHub/GitLab
+hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "G", function()
+  hs.application.launchOrFocus(Config.gitAppName)
+end)
+
+
 --- Apple Music stuff Hyper + A ---
 local appleMusicKey = "A"
 

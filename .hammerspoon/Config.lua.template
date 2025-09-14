@@ -1,3 +1,4 @@
 Config = {
-    disableTeams = true;
+    messagingAppName = "Discord"; -- for example "Microsoft Teams"
+    gitAppName = "GH My Issues";
 }
