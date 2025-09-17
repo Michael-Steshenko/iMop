@@ -276,3 +276,4 @@ end if
 - [ ] Move all the music apple script keyboard shortcuts to Hammerspoon, should probably also use hyperkey.
 - [ ] Switch to Obsidian for my note taking
 - [ ] When using a keybind to switch to an app with multiple open windows, pressing the keybind again should switch to the next open app window.
+- [ ] MacOS Tahoe broke Apple Music control via Apple Scripts which I relied on for Music Keybinds, check if there's a fix after some time
