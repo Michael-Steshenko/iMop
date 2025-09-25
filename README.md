@@ -26,6 +26,8 @@ In Karabiner under `Complex Modifications`:
 - `Add your own rule`
 - paste the contents of [karabiner-elements-rules.json](https://github.com/Michael-Steshenko/iMop/blob/main/karabiner-elements-rules.json)
 
+Under simple modifications for any non mac keyboard we want to swap cmd and option keys, this lets you use your thumb for command like on a mac keyboard.  
+
 ##### **Optional:** remapping keys for non US keyboard layouts
 
 On a mac with a European layout the `§` key is replacing the `backtick` key, and there is a smaller shift button with a `backtick` next to it.
