@@ -21,12 +21,12 @@ We use Hammerspoon and not native solutions (Shorcuts app / Apple script) becaus
 
 #### Configure Karabinar Elements
 
-In Karabiner under `Complex Modifications`:
+1. In Karabiner under `Complex Modifications`:
 
 - `Add your own rule`
 - paste the contents of [karabiner-elements-rules.json](https://github.com/Michael-Steshenko/iMop/blob/main/karabiner-elements-rules.json)
 
-Under simple modifications for any non mac keyboard we want to swap cmd and option keys, this lets you use your thumb for command like on a mac keyboard.  
+2. Under simple modifications for any non mac keyboard we want to swap cmd and option keys, this lets you use your thumb for command like on a mac keyboard.  
 
 ##### **Optional:** remapping keys for non US keyboard layouts
 
