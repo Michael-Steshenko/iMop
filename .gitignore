@@ -1,6 +1,13 @@
 .DS_Store
 .hammerspoon/Config.lua
+
+
+# ---- Ignore Spoons dir except SpoonInstall and my custom spoons ----
 Spoons
+
+# This is the only official spoon that we "manually" install, other spoons are installed using SpoonInstall
+# We keep it in git so we don't need to manually add it on fresh installs
+!Spoons/SpoonInstall.spoon
 
 # We ignore the Spoons dir so unignore custom spoons here
 !Spoons/ManageTeams.spoon
