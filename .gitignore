@@ -1,2 +1,6 @@
 .DS_Store
 .hammerspoon/Config.lua
+Spoons
+
+# We ignore the Spoons dir so unignore custom spoons here
+!Spoons/ManageTeams.spoon

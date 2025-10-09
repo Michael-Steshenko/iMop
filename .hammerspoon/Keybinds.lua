@@ -17,7 +17,7 @@ end)
 
 -- Launch FireFox
 hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "2", function()
-hs.application.launchOrFocus("Firefox")
+  hs.application.launchOrFocus("Firefox")
 end)
  
 -- Launch VSCode
