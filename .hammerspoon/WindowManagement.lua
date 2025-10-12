@@ -9,7 +9,7 @@ Install:andUse(
   {
     config = { gridGeometries =
                 { { myGrid.w .."x" .. myGrid.h } } },
-    hotkeys = {show_grid = {{"ctrl", "alt", "cmd", "shift"}, "g"}},
+    --hotkeys = {show_grid = {{"ctrl", "alt", "cmd", "shift"}, "g"}}, -- enable for debugging
     start = true,
   }
 )
