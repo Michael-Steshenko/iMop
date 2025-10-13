@@ -25,11 +25,11 @@ hs.loadSpoon("LaunchSwitch")
 -- Special treatment because Teams spawns multiple windows and
 -- treats its users like idiots
 if (Config.messagingAppName) then
-  hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "t", function()
+  hs.hotkey.bind(hyper, "t", function()
     hs.application.launchOrFocus(Config.messagingAppName)
     -- switch from main Teams window to a second open teams window if it exists
     -- This is my MacOS settings keybind to switch to other windows of the same app
-    hs.eventtap.keyStroke({"ctrl", "alt", "cmd", "shift"}, "space")    
+    hs.eventtap.keyStroke(hyper, "space")    
   end)
 end
 
@@ -101,4 +101,4 @@ function appleMusicMode()
   hs.alert.show('Apple Music Mode')
   evtap:start()
 end
-hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, appleMusicKey, appleMusicMode)
+hs.hotkey.bind(hyper, appleMusicKey, appleMusicMode)
