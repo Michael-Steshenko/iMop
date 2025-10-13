@@ -1,4 +1,5 @@
 Config = {
+    hyper = {"ctrl", "alt", "cmd", "shift"};
     messagingAppName = "Discord"; -- for example "Microsoft Teams"
     gitAppName = "GH My Issues";
 }

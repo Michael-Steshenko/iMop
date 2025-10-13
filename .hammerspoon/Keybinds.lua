@@ -1,6 +1,6 @@
 require('Config')
 
-local hyper = {"ctrl","alt","cmd","shift"}
+local hyper = Config.hyper
 
 hs.loadSpoon("LaunchSwitch")
     -- :setLogLevel("debug") -- uncomment for console debug log
