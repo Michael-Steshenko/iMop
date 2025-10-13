@@ -1,6 +1,29 @@
 require('Config')
 
+local hyper = {"ctrl","alt","cmd","shift"}
+
+hs.loadSpoon("LaunchSwitch")
+    -- :setLogLevel("debug") -- uncomment for console debug log
+  :bindHotkeys({
+    -- Note that you can put multiple apps for one hotkey as in the following line
+    -- If multiple apps in the array are open it would cycle through them
+    -- If none of the apps are open it would launch the first app in the array
+    -- [{"Calculator", "Safari" }] = { hyper, "e" }, -- multiple apps example
+    [{"1Password"}] = { hyper, "1"},
+    [{"Firefox", "Safari"}] = { hyper, "2"},
+    [{"Visual Studio Code"}] = {hyper, "3"},
+    [{"Terminal"}] = {hyper, "4"},
+    [{"Microsoft OneNote"}] = {hyper, "5"},
+    [{"Slack"}] = {hyper, "s"},
+    [{"Mail"}] = {hyper, "m"},
+    [{"Calendar"}] = {hyper, "c"},
+    --- PWA Apps ---
+    [{Config.gitAppName}] = {hyper, "g"},
+})
+
 -- Launch MS Teams / Zoom / Discord
+-- Special treatment because Teams spawns multiple windows and
+-- treats its users like idiots
 if (Config.messagingAppName) then
   hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "t", function()
     hs.application.launchOrFocus(Config.messagingAppName)
@@ -9,53 +32,6 @@ if (Config.messagingAppName) then
     hs.eventtap.keyStroke({"ctrl", "alt", "cmd", "shift"}, "space")    
   end)
 end
-
--- Launch 1Password
-hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "1", function()
-  hs.application.launchOrFocus("1Password")
-end)
-
--- Launch FireFox
-hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "2", function()
-  hs.application.launchOrFocus("Firefox")
-end)
- 
--- Launch VSCode
-hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "3", function()
-  hs.application.launchOrFocus("Visual Studio Code")
-end)
-
--- Launch Terminal
-hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "4", function()
-  hs.application.launchOrFocus("Terminal")
-end)
-
--- Launch OneNote
-hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "5", function()
-  hs.application.launchOrFocus("Microsoft OneNote")
-end)
-
--- Launch Slack
-hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "s", function()
-  hs.application.launchOrFocus("Slack")
-end)
-
--- Launch Mail
-hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "m", function()
-  hs.application.launchOrFocus("Mail")
-end)
-
--- Launch Calendar
-hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "c", function()
-  hs.application.launchOrFocus("Calendar")
-end)
-
---- PWA Apps ---
--- Launch GitHub/GitLab
-hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "G", function()
-  hs.application.launchOrFocus(Config.gitAppName)
-end)
-
 
 --- Apple Music stuff Hyper + A ---
 local appleMusicKey = "A"
