@@ -26,7 +26,7 @@ We use Hammerspoon and not native solutions (Shorcuts app / Apple script) becaus
 - `Add your own rule`
 - paste the contents of [karabiner-elements-rules.json](https://github.com/Michael-Steshenko/iMop/blob/main/karabiner-elements-rules.json)
 
-2. Under simple modifications for any non mac keyboard we want to swap cmd and option keys, this lets you use your thumb for command like on a mac keyboard.  
+2. Under simple modifications for any non mac keyboard we want to swap cmd and option keys, this lets you use your thumb for command like on a mac keyboard.
 
 ##### **Optional:** remapping keys for non US keyboard layouts
 
@@ -274,7 +274,8 @@ end if
 
 ## TODO
 
-- [ ] Use f18 instead of ctrl + cmd + option + shift for hyperkey in Karabiner / Hammerspoon
+- [ ] ~~Use f18 instead of ctrl + cmd + option + shift for hyperkey in Karabiner / Hammerspoon~~
+  - This requires wonky workarounds because hs.hotkeybind requires modifier keys in the array and leaving the modifier array empty makes it so the key is always pressed, current hyperkey works well enough for now.
 - [ ] Move all the music apple script keyboard shortcuts to Hammerspoon, should probably also use hyperkey.
 - [ ] Switch to Obsidian for my note taking
 - [ ] When using a keybind to switch to an app with multiple open windows, pressing the keybind again should switch to the next open app window.
