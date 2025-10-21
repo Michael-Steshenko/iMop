@@ -9,14 +9,14 @@ hs.loadSpoon("LaunchSwitch")
     -- If multiple apps in the array are open it would cycle through them
     -- If none of the apps are open it would launch the first app in the array
     -- [{"Calculator", "Safari" }] = { hyper, "e" }, -- multiple apps example
-    [{"1Password"}] = { hyper, "1"},
-    [{"Firefox", "Safari"}] = { hyper, "2"},
-    [{"Visual Studio Code"}] = {hyper, "3"},
-    [{"Terminal"}] = {hyper, "4"},
-    [{"Microsoft OneNote"}] = {hyper, "5"},
-    [{"Slack"}] = {hyper, "s"},
-    [{"Mail"}] = {hyper, "m"},
-    [{"Calendar"}] = {hyper, "c"},
+    [{"com.1password.1password"}] = { hyper, "1"},
+    [{"org.mozilla.firefox", "com.apple.Safari"}] = { hyper, "2"},
+    [{"com.microsoft.VSCode"}] = {hyper, "3"},
+    [{"com.apple.Terminal"}] = {hyper, "4"},
+    [{"com.microsoft.onenote.mac"}] = {hyper, "5"},
+    [{"com.tinyspeck.slackmacgap"}] = {hyper, "s"},
+    [{"com.apple.mail"}] = {hyper, "m"},
+    [{"com.apple.iCal"}] = {hyper, "c"},
     --- PWA Apps ---
     [{Config.gitAppName}] = {hyper, "g"},
 })
@@ -81,7 +81,7 @@ function appleMusicMode()
     elseif key == hs.keycodes.map['h'] then -- Help
       hs.alert.show("F: Favorite\nU: Unfavorite\nL: Suggest less")
     elseif key == hs.keycodes.map[appleMusicKey] then -- Launch Apple Music
-      hs.application.launchOrFocus("Apple Music")
+      hs.application.launchOrFocus("Music")
       evtap:stop()
     elseif key == hs.keycodes.map['F'] then -- Favorite
       favorite()

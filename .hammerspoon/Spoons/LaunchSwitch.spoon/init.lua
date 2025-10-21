@@ -21,7 +21,6 @@
 ---
 --- ```
 --- hs.loadSpoon("AppWindowSwitcher")
----     -- :setLogLevel("debug") -- uncomment for console debug log
 ---     :bindHotkeys({
 ---         ["com.apple.Terminal"]        = {hyper, "t"},
 ---         [{"com.apple.Safari",
@@ -66,11 +65,6 @@ obj.homepage = "https://github.com/bviefhues/AppWindowSwitcher.spoon"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 
--- AppWindowSwitcher.log
--- Variable
--- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
-obj.log = hs.logger.new("AppWindowSwitcher")
-
 -- prefix match for text. Returns true if text starts with prefix.
 function obj.startswith(text, prefix)
     return text:find(prefix, 1, true) == 1
@@ -83,13 +77,11 @@ end
 function obj.match(window, matchtexts)
     bundleID = window:application():bundleID()
     if hs.fnutils.contains(matchtexts, bundleID) then
-        obj.log.d("bundleID matches:", bundleID)
         return true
     end
     title = window:application():title()
     for _, matchtext in pairs(matchtexts) do
         if obj.startswith(title, matchtext) then
-            obj.log.d("title matches:", title, matchtext)
             return true
         end
     end
@@ -149,20 +141,6 @@ function obj:bindHotkeys(mapping)
         end)
     end
 
-    return self
-end
-
---- AppWindowSwitcher:setLogLevel(level) -> self
---- Method
---- Set the log level of the spoon logger.
----
---- Parameters:
----  * Log level - `"debug"` to enable console debug output
----
---- Returns:
----  * The AppWindowSwitcher object
-function obj:setLogLevel(level)
-    obj.log.setLogLevel(level)
     return self
 end
 
