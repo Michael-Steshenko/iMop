@@ -2,8 +2,9 @@ require('Config')
 
 local hyper = Config.hyper
 
+-- Prefer bundle app Ids over app names if possible
+-- i.e. prefer "org.mozilla.firefox" over "Firefox"
 hs.loadSpoon("LaunchSwitch")
-    -- :setLogLevel("debug") -- uncomment for console debug log
   :bindHotkeys({
     -- Note that you can put multiple apps for one hotkey as in the following line
     -- If multiple apps in the array are open it would cycle through them
@@ -81,7 +82,7 @@ function appleMusicMode()
     elseif key == hs.keycodes.map['h'] then -- Help
       hs.alert.show("F: Favorite\nU: Unfavorite\nL: Suggest less")
     elseif key == hs.keycodes.map[appleMusicKey] then -- Launch Apple Music
-      hs.application.launchOrFocus("Music")
+      hs.application.launchOrFocusByBundleID("com.apple.Music")
       evtap:stop()
     elseif key == hs.keycodes.map['F'] then -- Favorite
       favorite()

@@ -53,6 +53,7 @@ require("hs.hotkey")
 require("hs.window")
 require("hs.inspect")
 require("hs.fnutils")
+require("hs.window.filter")
 
 local obj={}
 obj.__index = obj
@@ -64,7 +65,6 @@ obj.author = "B Viefhues"
 obj.homepage = "https://github.com/bviefhues/AppWindowSwitcher.spoon"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
-
 -- prefix match for text. Returns true if text starts with prefix.
 function obj.startswith(text, prefix)
     return text:find(prefix, 1, true) == 1
@@ -75,11 +75,13 @@ end
 -- * windows application bundleID is an element of matchtexts, or
 -- * windows application title starts with an element of matchtext
 function obj.match(window, matchtexts)
-    bundleID = window:application():bundleID()
+    local app = window:application()
+    if not app then return false end
+    local bundleID = app:bundleID()
     if hs.fnutils.contains(matchtexts, bundleID) then
         return true
     end
-    title = window:application():title()
+    local title = app:title()
     for _, matchtext in pairs(matchtexts) do
         if obj.startswith(title, matchtext) then
             return true
@@ -87,6 +89,9 @@ function obj.match(window, matchtexts)
     end
     return false
 end
+
+-- Reuse a cached window filter for current space and visible windows
+local wf = hs.window.filter.defaultCurrentSpace
 
 --- AppWindowSwitcher:bindHotkeys(mapping) -> self
 --- Method
@@ -108,21 +113,39 @@ end
 function obj:bindHotkeys(mapping)
     for matchtexts, modsKey in pairs(mapping) do
         if type(matchtexts) == "string" then
-            matchtexts = {matchtexts}
+            matchtexts = { matchtexts }
         end
-        mods, key = table.unpack(modsKey)
+
+        -- Simple matcher: match either bundleID or app-name prefix
+        local function matches(win)
+            local app = win and win:application()
+            if not app then return false end
+            local bid  = app:bundleID()
+            local name = app:title()
+            for _, t in ipairs(matchtexts) do
+                if t == bid or obj.startswith(name, t) then
+                    return true
+                end
+            end
+            return false
+        end
+
+        local mods, key = table.unpack(modsKey)
+
         hs.hotkey.bind(mods, key, function()
             local focused = hs.window.focusedWindow()
+            local focusedMatches = focused and matches(focused)
             local newW = nil
 
-            -- cycle existing windows as before
-            if focused and obj.match(focused, matchtexts) then
-                for _, w in pairs(hs.window.orderedWindows()) do
-                    if obj.match(w, matchtexts) then newW = w end
+            -- Single pass using the window.filter cache (current Space, visible)
+            local ordered = wf:getWindows()
+            if focusedMatches then
+                for _, w in ipairs(ordered) do
+                    if matches(w) then newW = w end  -- last match
                 end
             else
-                for _, w in pairs(hs.window.orderedWindows()) do
-                    if obj.match(w, matchtexts) then newW = w; break end
+                for _, w in ipairs(ordered) do
+                    if matches(w) then newW = w; break end
                 end
             end
 
@@ -130,11 +153,9 @@ function obj:bindHotkeys(mapping)
                 newW:raise():focus()
             else
                 local target = matchtexts[1]
-                if target:find("%.") then
-                    -- looks like a bundle-ID, so launch by bundle
+                if target and target:find("%.") then
                     hs.application.launchOrFocusByBundleID(target)
                 else
-                    -- otherwise assume it’s an application name
                     hs.application.launchOrFocus(target)
                 end
             end
