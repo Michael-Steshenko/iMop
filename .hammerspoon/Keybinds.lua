@@ -11,7 +11,7 @@ hs.loadSpoon("LaunchSwitch")
     -- If none of the apps are open it would launch the first app in the array
     -- [{"Calculator", "Safari" }] = { hyper, "e" }, -- multiple apps example
     [{"com.1password.1password"}] = { hyper, "1"},
-    [{"org.mozilla.firefox", "com.apple.Safari"}] = { hyper, "2"},
+    [{"com.google.chrome", "com.apple.Safari"}] = { hyper, "2"}, -- ditching firefox because it doesn't play nice with window resizing via "hs.grid.set()"
     [{"com.microsoft.VSCode"}] = {hyper, "3"},
     [{"com.apple.Terminal"}] = {hyper, "4"},
     [{"com.microsoft.onenote.mac"}] = {hyper, "5"},
