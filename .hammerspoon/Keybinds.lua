@@ -9,17 +9,21 @@ hs.loadSpoon("LaunchSwitch")
     -- Note that you can put multiple apps for one hotkey as in the following line
     -- If multiple apps in the array are open it would cycle through them
     -- If none of the apps are open it would launch the first app in the array
-    -- [{"Calculator", "Safari" }] = { hyper, "e" }, -- multiple apps example
     [{"com.1password.1password"}] = { hyper, "1"},
-    [{"com.google.chrome", "com.apple.Safari"}] = { hyper, "2"}, -- ditching firefox because it doesn't play nice with window resizing via "hs.grid.set()"
+    -- ditching firefox because it doesn't play nice with window resizing via "hs.grid.set()"
+    [{"com.google.chrome", "com.apple.Safari"}] = { hyper, "2"}, 
     [{"com.microsoft.VSCode"}] = {hyper, "3"},
     [{"com.apple.Terminal"}] = {hyper, "4"},
     [{"com.microsoft.onenote.mac"}] = {hyper, "5"},
     [{"com.tinyspeck.slackmacgap"}] = {hyper, "s"},
     [{"com.apple.mail"}] = {hyper, "m"},
     [{"com.apple.iCal"}] = {hyper, "c"},
-    --- PWA Apps ---
-    [{Config.gitAppName}] = {hyper, "g"},
+    --- Safari Web Apps ---
+    -- My use case was using a specific view in GH Business.
+    -- The problem is this also forces opening all GH Business links in this app,
+    -- there seems to be no way of changing that behaviour.
+    -- For now will just cycle through open browser windows.
+    -- [{Config.gitAppName}] = {hyper, "g"},
 })
 
 -- Launch MS Teams / Zoom / Discord
