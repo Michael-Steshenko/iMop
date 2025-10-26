@@ -18,6 +18,8 @@ hs.loadSpoon("LaunchSwitch")
     [{"com.tinyspeck.slackmacgap"}] = {hyper, "s"},
     [{"com.apple.mail"}] = {hyper, "m"},
     [{"com.apple.iCal"}] = {hyper, "c"},
+    [{"com.apple.reminders"}] = {hyper, "r"},
+    [{"com.apple.finder"}] = {hyper, "f"},
     --- Safari Web Apps ---
     -- My use case was using a specific view in GH Business.
     -- The problem is this also forces opening all GH Business links in this app,
