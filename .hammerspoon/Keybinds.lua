@@ -9,11 +9,14 @@ hs.loadSpoon("LaunchSwitch")
     -- Note that you can put multiple apps for one hotkey as in the following line
     -- If multiple apps in the array are open it would cycle through them
     -- If none of the apps are open it would launch the first app in the array
+
+    -- To find the bundle id of an app use: osascript -e 'id of app "AppName"'
+
     [{"com.1password.1password"}] = { hyper, "1"},
     -- ditching firefox because it doesn't play nice with window resizing via "hs.grid.set()"
     [{"com.google.Chrome", "com.apple.Safari"}] = { hyper, "2"}, 
     [{"com.microsoft.VSCode"}] = {hyper, "3"},
-    [{"com.apple.Terminal"}] = {hyper, "4"},
+    [{"com.mitchellh.ghostty", "com.apple.Terminal"}] = {hyper, "4"},
     [{"com.microsoft.onenote.mac"}] = {hyper, "5"},
     [{"com.tinyspeck.slackmacgap"}] = {hyper, "s"},
     [{"com.apple.mail"}] = {hyper, "m"},

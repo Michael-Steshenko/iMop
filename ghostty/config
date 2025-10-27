@@ -1,0 +1,3 @@
+# shift enter starts a new line
+# for multi-line commands
+keybind = shift+enter=text:\x1b\r

@@ -4,6 +4,12 @@ A place for me to keep a set of tools, configurations and installation instructi
 
 ## Tools
 
+# Ghostty terminal emulator
+
+`brew install --cask ghostty`  
+Config file is empty by default, the `install.sh` script will place the config at `~/.config/ghostty/config`.  
+If the wrong config is loading, check Menu Bar -> Ghosty -> Settings.
+
 ### Neovim
 
 `brew install neovim`
