@@ -3,3 +3,10 @@
 keybind = shift+enter=text:\x1b\r
 
 font-size = 24
+
+# Remember window position and size between sessions
+# Note that window position is not saved when quitting with cmd+w
+# This comment is the only reference of this issue I found
+# https://github.com/ghostty-org/ghostty/issues/4233#issuecomment-2577352265
+window-save-state = always
+quit-after-last-window-closed = true
