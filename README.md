@@ -135,13 +135,16 @@ PS1='%n@%m %d %# '
 
 echo_and_run() { echo "\$ $*" ; "$@" ; }
 
-# replace npm build with npm run build
+# replace common npm commands with shortened commands without "run"
+# i.e. "npm run start" becomes "npm start"
 npm() {
-    if [ "$1" = "build" ]; then
-        shift        # eat the 'build'
-        echo "replacing npm build "$@" with npm run build "$@""
-        npm run build "$@"
+    if [[ "$1" == "build" || "$1" == "start" || "$1" == "lint" || "$1" == "dev" ]]; then
+        local cmd="$1"
+        shift
+        echo "Running: npm run $cmd $@"
+        command npm run "$cmd" "$@"
     else
+        echo "Running: npm $@"
         command npm "$@"
     fi
 }
