@@ -23,6 +23,8 @@ hs.loadSpoon("LaunchSwitch")
     [{"com.apple.iCal"}] = {hyper, "c"},
     [{"com.apple.reminders"}] = {hyper, "r"},
     [{"com.apple.finder"}] = {hyper, "f"},
+    [{"com.apple.TextEdit"}] = {hyper, "e"}
+
     --- Safari Web Apps ---
     -- My use case was using a specific view in GH Business.
     -- The problem is this also forces opening all GH Business links in this app,
