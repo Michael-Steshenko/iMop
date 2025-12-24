@@ -15,7 +15,7 @@ hs.loadSpoon("LaunchSwitch")
     [{"com.1password.1password"}] = { hyper, "1"},
     -- ditching firefox because it doesn't play nice with window resizing via "hs.grid.set()"
     [{"com.google.Chrome", "com.apple.Safari"}] = { hyper, "2"}, 
-    [{"com.microsoft.VSCode"}] = {hyper, "3"},
+    [{"com.microsoft.VSCode", "Codespaces"}] = {hyper, "3"},
     [{"com.mitchellh.ghostty", "com.apple.Terminal"}] = {hyper, "4"},
     [{"com.microsoft.onenote.mac"}] = {hyper, "5"},
     [{"com.tinyspeck.slackmacgap"}] = {hyper, "s"},
