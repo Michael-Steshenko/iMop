@@ -25,7 +25,8 @@ hs.loadSpoon("LaunchSwitch")
     [{"com.apple.reminders"}] = {hyper, "r"},
     [{"com.apple.finder"}] = {hyper, "f"},
     [{"com.apple.TextEdit"}] = {hyper, "e"},
-    [{"com.apple.iBooksX"}] = {hyper, "b"}
+    [{"com.apple.iBooksX"}] = {hyper, "b"},
+    [{"com.apple.Notes"}] = {hyper, "n"},
 
 
     --- Safari Web Apps ---
