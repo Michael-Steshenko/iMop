@@ -219,6 +219,11 @@ Now for each shortcut you want to add, do the following:
 - File -> save, and give the shortcut a name
 - Assign a keyboard shortcut in System Settings -> Keyboard -> Keyboard Shortcuts -> Services -> General
 
+### Enable key repeat on key press and hold
+
+This is useful for things like VIM vscode integrations.  
+`defaults write -g ApplePressAndHoldEnabled -bool false`
+
 #### Scripts I'm using:
 
 Volume up (^F3):
