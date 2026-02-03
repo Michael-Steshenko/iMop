@@ -157,6 +157,10 @@ brew() {
         command brew "$@"
     fi
 }
+
+# Copy all commit messages that are not yet in main to the clipboard, and open GH create PR page
+alias ghpr='git log main..HEAD --reverse --pretty=format:"- %s" | pbcopy && gh pr create --web'
+
 ```
 
 ### External Storage
