@@ -295,4 +295,3 @@ end if
 - [ ] ~~Use f18 instead of ctrl + cmd + option + shift for hyperkey in Karabiner / Hammerspoon~~
   - This requires wonky workarounds because hs.hotkeybind requires modifier keys in the array and leaving the modifier array empty makes it so the key is always pressed, current hyperkey works well enough for now.
 - [ ] Switch to Obsidian for my note taking
-- [ ] MacOS Tahoe broke Apple Music control via Apple Scripts which I relied on for Music Keybinds, check if there's a fix after some time
