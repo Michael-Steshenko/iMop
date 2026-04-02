@@ -1,6 +1,6 @@
 # iMop
 
-A place for me to keep a set of tools, configurations and installation instructions for tools that I use for development on OSX
+Configurations and installation instructions for tools that I use for development on MacOS
 
 ## Tools
 
