@@ -1,4 +1,5 @@
 Config = {
     hyper = {"ctrl", "alt", "cmd", "shift"};
-    messagingAppName = "Discord"; -- for example "Microsoft Teams"
+    messagingAppList = {"Discord"}; -- for example {"com.microsoft.teams2", "Discord"}
+    calendarAppList = {"com.apple.iCal"}; -- for example {"com.microsoft.Outlook"}
 }

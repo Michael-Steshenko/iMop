@@ -18,9 +18,10 @@ hs.loadSpoon("LaunchSwitch")
     [{"com.microsoft.VSCode", "Codespaces", "com.ibm.software.bob"}] = {hyper, "3"},
     [{"com.mitchellh.ghostty", "com.apple.Terminal"}] = {hyper, "4"},
     [{"com.microsoft.onenote.mac"}] = {hyper, "5"},
-    [{"com.tinyspeck.slackmacgap"}] = {hyper, "s"},
+    [Config.messagingAppList] = {hyper, "t"},
+    [{"com.tinyspeck.slackmacgap"}] = {hyper, "s"}, -- at work I want slack on a seperate keybind
     [{"com.apple.mail"}] = {hyper, "m"},
-    [{"com.apple.iCal"}] = {hyper, "c"},
+    [Config.calendarAppList] = {hyper, "c"},
     [{"com.apple.reminders"}] = {hyper, "r"},
     [{"com.apple.finder"}] = {hyper, "f"},
     [{"com.apple.TextEdit"}] = {hyper, "e"},
@@ -38,14 +39,14 @@ hs.loadSpoon("LaunchSwitch")
 -- Launch MS Teams / Zoom / Discord
 -- Special treatment because Teams spawns multiple windows and
 -- treats its users like idiots
-if (Config.messagingAppName) then
-  hs.hotkey.bind(hyper, "t", function()
-    hs.application.launchOrFocus(Config.messagingAppName)
-    -- switch from main Teams window to a second open teams window if it exists
-    -- This is my MacOS settings keybind to switch to other windows of the same app
-    hs.eventtap.keyStroke(hyper, "space")    
-  end)
-end
+-- if (Config.messagingAppName) then
+--   hs.hotkey.bind(hyper, "t", function()
+--     hs.application.launchOrFocus(Config.messagingAppName)
+--     -- switch from main Teams window to a second open teams window if it exists
+--     -- This is my MacOS settings keybind to switch to other windows of the same app
+--     hs.eventtap.keyStroke(hyper, "space")    
+--   end)
+-- end
 
 --- Apple Music stuff Hyper + A ---
 local appleMusicKey = "A"
