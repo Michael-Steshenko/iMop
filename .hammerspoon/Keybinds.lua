@@ -17,7 +17,7 @@ hs.loadSpoon("LaunchSwitch")
     -- If none of the apps are open it would launch the first app in the array
     [{"com.microsoft.VSCode", "Codespaces", "com.ibm.software.bob"}] = {hyper, "3"},
     [{"com.mitchellh.ghostty", "com.apple.Terminal"}] = {hyper, "4"},
-    [{"com.microsoft.onenote.mac"}] = {hyper, "5"},
+    [Config.notesAppList] = {hyper, "5"},
     [Config.messagingAppList] = {hyper, "t"},
     [{"com.tinyspeck.slackmacgap"}] = {hyper, "s"}, -- at work I want slack on a seperate keybind
     [{"com.apple.mail"}] = {hyper, "m"},
