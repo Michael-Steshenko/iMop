@@ -1,6 +1,6 @@
 Config = {
     hyper = {"ctrl", "alt", "cmd", "shift"};
-    messagingAppList = {"Discord"}; -- for example {"com.microsoft.teams2", "Discord"}
-    calendarAppList = {"com.apple.iCal"}; -- for example {"com.microsoft.Outlook"}
-    notesAppList = {"md.obsidian", "com.microsoft.onenote.mac"} 
+    messagingAppList = {"Discord"}; -- for example {"com.microsoft.teams2", "Discord"};
+    calendarAppList = {"com.apple.iCal"}; -- for example {"com.microsoft.Outlook"};
+    notesAppList = {"md.obsidian", "com.microsoft.onenote.mac"};
 }
