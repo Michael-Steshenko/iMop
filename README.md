@@ -295,3 +295,34 @@ end if
 - [ ] ~~Use f18 instead of ctrl + cmd + option + shift for hyperkey in Karabiner / Hammerspoon~~
   - This requires wonky workarounds because hs.hotkeybind requires modifier keys in the array and leaving the modifier array empty makes it so the key is always pressed, current hyperkey works well enough for now.
 - [ ] Switch to Obsidian for my note taking
+
+## Known Issues / Limitations
+
+### App-switching hotkeys pull you to another desktop
+
+Desired behavior: pressing an app hotkey should never switch me to a different
+desktop. If the app has a window on the current desktop, focus it; otherwise
+bring the app to the current desktop (new window for multi-window apps, move the
+window for single-window apps).
+
+This can't be done reliably from Hammerspoon on macOS 26 (Tahoe / Darwin 25):
+
+- `hs.spaces.moveWindowToSpace` is broken on macOS 15+ — it returns `true` but
+  does not actually move the window
+  ([Hammerspoon #3698](https://github.com/Hammerspoon/hammerspoon/issues/3698)).
+- The Accessibility API can't see windows on other desktops:
+  `app:allWindows()` and `hs.window.get(id)` return nothing for an off-Space
+  window, so Hammerspoon can't locate or move it. `hs.spaces.windowsForSpace()`
+  does list window IDs across desktops, but there's no built-in way to map a
+  window ID back to its owning app.
+
+Workaround attempt: assign a follow-me app (e.g. Slack) to **All Desktops**.
+This mostly works, but the sticky window pops to the top of the z-order on every
+desktop switch. That pop is a WindowServer compositor effect below the layer
+Hammerspoon can reach, so `focus()`/`raise()` can't stop it. Enabling
+**Reduce Motion** (System Settings → Accessibility → Display) removes the
+slide-in pop but leaves a brief flash.
+
+The only reliable path for true "never switch desktops, summon the app to me"
+behavior I can think of, is a window manager that owns window placement like AeroSpace (see
+`.aerospace.toml`)
