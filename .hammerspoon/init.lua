@@ -12,6 +12,9 @@ require('Keybinds')
 -- Reverse mice scroll direction, skip touchpads
 require('ScrollReverser')
 
+-- Fix middle click for TrackPoint Keyboard II
+require('TrackPointKeyboard')
+
 -- Screen zones and hotkeys to move the keys
 require('WindowManagement')
 
