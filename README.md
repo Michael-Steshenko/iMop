@@ -43,7 +43,7 @@ To map `§` to `backtick` and `backtick` to left shift (extending the left shift
 Then set `Virtual Keyboard` to `ANSI`
 <img width="820" height="302" alt="image" src="https://github.com/user-attachments/assets/2cb4feec-60e1-4910-8b58-86ff937801d9" />
 
-##### Fix Middle Click & Scroll for TrackPoint Keyboard II
+##### **Optional:** Fix Middle Click & Scroll for TrackPoint Keyboard II
 
 The Lenovo TrackPoint Keyboard II natively handles scrolling when the middle button is held and the trackpoint is moved. However, macOS will still register a middle click which inadvertently opens links in the background while you scroll. We use a combination of Karabiner and Hammerspoon to fix this:
 
