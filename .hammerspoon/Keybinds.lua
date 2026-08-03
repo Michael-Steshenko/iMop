@@ -27,6 +27,7 @@ hs.loadSpoon("LaunchSwitch")
     [{"com.apple.TextEdit"}] = {hyper, "e"},
     [{"com.apple.iBooksX"}] = {hyper, "b"},
     [{"com.apple.Notes"}] = {hyper, "n"},
+    [{"com.vmware.fusion", "com.utmapp.UTM" }] = {hyper, "v"},
 
 
     --- Safari Web Apps ---
