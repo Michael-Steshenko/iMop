@@ -162,45 +162,11 @@ npm() {
     fi
 }
 
-# Print the bare app name(s) a cask installs, one per line, e.g. "Karabiner-Elements"
-# (a cask can ship more than one .app). Reads `brew info` JSON and pulls out each
-# "app" artifact, dropping the .app extension so the name is ready for osascript.
-brew_cask_apps() {
-    command brew info --cask --json=v2 "$1" 2>/dev/null \
-        | /usr/bin/python3 -c 'import sys, json; print("\n".join(a["app"][0][:-4] for c in json.load(sys.stdin)["casks"] for a in c["artifacts"] if isinstance(a, dict) and a.get("app")))' 2>/dev/null
-}
-
-# brew up - full update for brew, brew packages and brew casks (apps)
-# Before the greedy cask upgrade, gracefully quit any app that is about to be
-# updated so the upgrade doesn't yank a running app out from under you.
 brew() {
+    # brew up - full update for brew, brew packages and brew casks (apps)
+    # Note, we do not need to add logic to gracefully close cask apps before updating, this is handled by brew for apps that need it.
     if [ "$1" = "up" ]; then
-        echo_and_run brew update
-
-        # Gracefully quit running apps whose casks are about to be upgraded.
-        for cask in $(command brew outdated --cask --greedy --quiet); do
-            for app in $(brew_cask_apps "$cask"); do
-                # `application "X" is running` checks liveness WITHOUT launching the app.
-                if [ "$(osascript -e "application \"$app\" is running" 2>/dev/null)" = "true" ]; then
-                    echo "Quitting \"$app\" before upgrading $cask..."
-                    osascript -e "quit app \"$app\"" 2>/dev/null
-                    # `quit` can return before the app has finished exiting (e.g. Electron
-                    # apps like Obsidian tear down asynchronously), so poll for up to ~15s.
-                    for i in {1..30}; do
-                        [ "$(osascript -e "application \"$app\" is running" 2>/dev/null)" = "true" ] || break
-                        sleep 0.5
-                    done
-                    # Still running after the grace period => a real refusal (e.g. a
-                    # cancelled save dialog); abort so we never upgrade a running app.
-                    if [ "$(osascript -e "application \"$app\" is running" 2>/dev/null)" = "true" ]; then
-                        echo "Aborting upgrade — \"$app\" would not quit." >&2
-                        return 1
-                    fi
-                fi
-            done
-        done
-
-        echo_and_run brew outdated --greedy && echo_and_run brew upgrade --greedy && echo_and_run brew cleanup
+	echo_and_run brew update && echo_and_run brew outdated --greedy && echo_and_run brew upgrade --greedy && echo_and_run brew cleanup
     else
         command brew "$@"
     fi
