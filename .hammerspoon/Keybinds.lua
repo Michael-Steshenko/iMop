@@ -1,4 +1,5 @@
 require('Config')
+require('SecureInput')
 
 local hyper = Config.hyper
 
@@ -90,6 +91,14 @@ local function suggestLess()
 end
 
 function appleMusicMode()
+  -- Bail out loudly rather than eating the chord: while any app holds macOS
+  -- secure input the chords below starts without complaint but never receives a
+  -- key, so the second keypress just types into whatever is focused.
+  -- switching to hs.hotkey.modal does not solve it: macOS does not dispatch
+  -- bare printable-key hotkeys at all, so 'f' cannot be bound without a
+  -- modifier, and we don't use modifier during chords.
+  if SecureInput.blocked() then return end
+
   -- use event tap to capture key presses because hs.hotkey.modal cannot act on keys we didn't bind
   evtap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(e)
     local key = e:getKeyCode()
