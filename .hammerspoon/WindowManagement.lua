@@ -1,9 +1,7 @@
 hyper = Config.hyper
 
 -- Window management
--- 3 zones, left, middle and right
--- if w > 100 it defaults to 100.
-myGrid = { w = 100, h = 1, left = 23, middle = 56, right = nil}
+myGrid = Config.grid
 myGrid.right = myGrid.w - myGrid.left - myGrid.middle
 
 Install:andUse(

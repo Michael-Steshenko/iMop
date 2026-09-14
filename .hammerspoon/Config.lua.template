@@ -3,4 +3,9 @@ Config = {
     messagingAppList = {"Discord"}; -- for example {"com.microsoft.teams2", "Teams (PWA)", "Discord", "Discord (PWA)"};
     calendarAppList = {"com.apple.iCal"}; -- for example {"com.microsoft.Outlook"};
     notesAppList = {"md.obsidian", "com.microsoft.onenote.mac"};
+    
+    -- zones layout for arranging windows with keyboard shortcuts
+    -- 3 zones, left, middle and right. if w > 100 it defaults to 100.
+    -- grid = { w = 100, h = 1, left = 23, middle = 56, right = nil}; -- larger middle section
+    grid = { w = 3, h = 1, left = 1, middle = 1, right = nil}; -- 3 equal sections
 }
