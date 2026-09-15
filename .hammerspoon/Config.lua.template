@@ -6,8 +6,9 @@ Config = {
     
     -- zones layout for arranging windows with keyboard shortcuts.
     -- `zones` is a list of relative widths, left to right -- any number of
-    -- zones works. hyper+j always jumps to the `home` zone (1-indexed;
-    -- defaults to the middle-most zone if omitted).
+    -- zones works. hyper+j always jumps to `home`: a 1-indexed zone number,
+    -- or a {start, end} range of zones. Defaults to the middle zone (odd
+    -- zone count) or middle pair (even zone count) if omitted.
     -- grid = { h = 1, zones = {23, 54, 23} }; -- 3 zones, larger middle section
     grid = { h = 1, zones = {1, 1, 1} }; -- 3 equal zones
 }

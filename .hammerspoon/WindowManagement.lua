@@ -11,7 +11,19 @@ end
 local N = #myGrid.zones
 local W = bounds[N + 1]
 local H = myGrid.h
-local home = myGrid.home or math.ceil(N / 2) -- 1-indexed zone hyper+j jumps to
+
+-- home zone(s) hyper+j jumps to: a single 1-indexed zone, or a {start, end}
+-- range. Defaults to the middle zone (odd N) or the middle pair (even N).
+local homeStart, homeEnd
+if type(myGrid.home) == "table" then
+  homeStart, homeEnd = myGrid.home[1], myGrid.home[2]
+elseif myGrid.home then
+  homeStart, homeEnd = myGrid.home, myGrid.home
+elseif N % 2 == 1 then
+  homeStart, homeEnd = (N + 1) / 2, (N + 1) / 2
+else
+  homeStart, homeEnd = N / 2, N / 2 + 1
+end
 
 Install:andUse(
   "WindowGrid",
@@ -59,17 +71,28 @@ hs.hotkey.bind(hyper, "h", function() -- left: shift a single zone left, or coll
     place(i, i + 1) -- collapse to own leftmost zone
   end
 end)
-hs.hotkey.bind(hyper, "j", function() -- down: jump to the home zone
-  place(home - 1, home)
+hs.hotkey.bind(hyper, "j", function() -- down: jump to the home zone(s)
+  place(homeStart - 1, homeEnd)
 end)
 hs.hotkey.bind(hyper, "k", function() -- up: grow toward full screen
   local i, j = currentCell()
   if not i then place(0, N) return end
   local canGrowLeft, canGrowRight = i > 0, j < N
-  if canGrowLeft and canGrowRight then place(0, N) -- ambiguous which side -> go full
-  elseif canGrowLeft then place(i - 1, j)
-  elseif canGrowRight then place(i, j + 1)
-  end -- else already full, no-op
+  if not canGrowLeft and not canGrowRight then
+    return -- already full, no-op
+  elseif canGrowLeft and not canGrowRight then
+    place(i - 1, j)
+  elseif canGrowRight and not canGrowLeft then
+    place(i, j + 1)
+  else
+    -- both sides have room: prefer whichever grow reaches a screen edge on
+    -- this step; if both would, or neither would, it's genuinely ambiguous
+    local leftAnchors, rightAnchors = i - 1 == 0, j + 1 == N
+    if leftAnchors and not rightAnchors then place(i - 1, j)
+    elseif rightAnchors and not leftAnchors then place(i, j + 1)
+    else place(0, N)
+    end
+  end
 end)
 hs.hotkey.bind(hyper, "l", function() -- right: shift a single zone right, or collapse to own rightmost zone
   local i, j = currentCell()
