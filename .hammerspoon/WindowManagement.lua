@@ -45,15 +45,29 @@ local function place(i, j)
   hs.grid.set(win, cell)
 end
 
--- (i, j) boundary indices of the focused window's current cell, or nil
+-- (i, j) boundary indices of the focused window's current cell, or nil if its
+-- frame doesn't line up with a zone boundary
 local function currentCell()
   local win = hs.window.focusedWindow()
-  local cur = win and hs.grid.get(win)
-  if not cur then return nil end
+  local scr = win and win:screen()
+  if not scr then return nil end
+  local screenFrame = scr:frame()
+  local winFrame = win:frame()
+  -- place() always targets y=screenFrame.y, h=screenFrame.h (dividing by
+  -- H=1 introduces no rounding), so these must match exactly
+  if winFrame.y ~= screenFrame.y or winFrame.h ~= screenFrame.h then
+    return nil
+  end
+  local cellW = screenFrame.w / W
   for i = 0, N - 1 do
     for j = i + 1, N do
-      if cur.x == bounds[i + 1] and cur.y == 0
-        and cur.w == bounds[j + 1] - bounds[i + 1] and cur.h == H then
+      local x = screenFrame.x + bounds[i + 1] * cellW
+      local w = (bounds[j + 1] - bounds[i + 1]) * cellW
+      -- dividing by W>1 can be fractional, and hs.grid.set() floors frames
+      -- to whole points, so a correctly-placed window's x/w can be off from
+      -- the exact target by up to (but, by floor-telescoping, never
+      -- reaching) 1pt; anything at or beyond 1pt is a real offset
+      if math.abs(winFrame.x - x) < 1 and math.abs(winFrame.w - w) < 1 then
         return i, j
       end
     end
