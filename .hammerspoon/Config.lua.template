@@ -4,11 +4,23 @@ Config = {
     calendarAppList = {"com.apple.iCal"}; -- for example {"com.microsoft.Outlook"};
     notesAppList = {"md.obsidian", "com.microsoft.onenote.mac"};
     
-    -- zones layout for arranging windows with keyboard shortcuts.
+    -- zones layouts for arranging windows with keyboard shortcuts.
     -- `zones` is a list of relative widths, left to right -- any number of
     -- zones works. hyper+j always jumps to `home`: a 1-indexed zone number,
     -- or a {start, end} range of zones. Defaults to the middle zone (odd
     -- zone count) or middle pair (even zone count) if omitted.
-    -- grid = { h = 1, zones = {23, 54, 23} }; -- 3 zones, larger middle section
-    grid = { h = 1, zones = {1, 1, 1} }; -- 3 equal zones
+    --
+    -- `defaultGrid` applies to every screen without its own entry. Other keys
+    -- are matched as a substring of the screen's name (case-sensitive). The
+    -- name can differ from System Settings, which shows "Built-in Display"
+    -- for what is really "Built-in Retina Display". A screen that no entry
+    -- matches shows an alert with its real name.
+    -- Moving between screens follows the display arrangement: h/l past the
+    -- first/last zone go to the screen west/east, k when full goes to the
+    -- screen above, j when already home goes to the screen below.
+    screenGrids = {
+        -- defaultGrid = { zones = {23, 54, 23} }; -- 3 zones, larger middle section
+        defaultGrid = { zones = {1, 1, 1} }; -- 3 equal zones
+        -- ["Built-in"] = { zones = {1} }; -- laptop screen
+    };
 }
