@@ -151,6 +151,7 @@ function obj:bindHotkeys(mapping)
 
             if newW then
                 newW:raise():focus()
+                hs.mouse.absolutePosition(newW:frame().center)
             else
                 local target = matchtexts[1]
                 if target and target:find("%.") then
