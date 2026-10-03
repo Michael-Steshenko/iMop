@@ -150,8 +150,19 @@ function obj:bindHotkeys(mapping)
             end
 
             if newW then
-                newW:raise():focus()
-                hs.mouse.absolutePosition(newW:frame().center)
+                local alreadyFocused = focused and (newW == focused or newW:id() == focused:id())
+                if not alreadyFocused then
+                    newW:raise():focus()
+                end
+
+                local frame = newW:frame()
+                local mouse = hs.mouse.absolutePosition()
+                local cursorInside = mouse.x >= frame.x and mouse.x <= (frame.x + frame.w) and
+                                     mouse.y >= frame.y and mouse.y <= (frame.y + frame.h)
+
+                if not (alreadyFocused and cursorInside) then
+                    hs.mouse.absolutePosition(frame.center)
+                end
             else
                 local target = matchtexts[1]
                 if target and target:find("%.") then
