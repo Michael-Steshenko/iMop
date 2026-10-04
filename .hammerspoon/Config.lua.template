@@ -20,7 +20,7 @@ Config = {
     -- screen above, j when already home goes to the screen below.
     screenGrids = {
         -- defaultGrid = { zones = {23, 54, 23} }; -- 3 zones, larger middle section
-        defaultGrid = { zones = {1, 1, 1} }; -- 3 equal zones
+        defaultGrid = { zones = {1} }; -- 3 equal zones
         -- ["Built-in"] = { zones = {1} }; -- laptop screen
     };
 }
