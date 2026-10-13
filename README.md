@@ -4,7 +4,7 @@ Configurations and installation instructions for tools that I use for developmen
 
 ## Tools
 
-# Ghostty terminal emulator
+### Ghostty terminal emulator
 
 `brew install --cask ghostty`  
 Config file is empty by default, the `install.sh` script will place the config at `~/.config/ghostty/config`.  
@@ -121,6 +121,23 @@ Since Karbiner elements is low level remapping, any remapping I make in it will 
 This means I can write a mapping that maps `some shortcut` to `ctrl` + `cmd` in order to exit the vm.  
 This also means I could reuse the mapping for switching to VMWare as the mapping to switch out, but that mapping can't rely on the hyper key without conflicts or complicated logic, and I want all app switching to be through the hyper key.  
 Taking all of this into account I decided that the few extra key presses i.e. (`cmd` + `h` -> the actual app shortcut I want) is good enough.
+
+### Finicky - open URLs in a specific browser / Chrome profile
+
+`brew install --cask finicky`  
+Open Finicky once and allow it to become the default browser, it then routes every link to a browser (and profile) based on rules in the config file.  
+The `install.sh` script will place the config at `~/.finicky.ts`.  
+To check if the config loaded correctly (or see errors), open Finicky manually.
+
+I use it to run several local instances of the same web app in parallel (one per git worktree, each on a different port).  
+Cookies are scoped by hostname and not by port, so all `localhost` instances share the same cookies, i.e. logging out in one logs you out of all of them.  
+To keep them separate, each port is opened in its own Chrome profile:
+
+- `localhost:9441` -> `Michael`
+- `localhost:9442` -> `Michael 2`
+- `localhost:9443` -> `Michael 3`
+- `localhost:9444` -> `Michael 4`
+- anything else -> `Michael`
 
 ## Configurations
 

@@ -15,4 +15,10 @@ INSTALL_CMD="ln -sfn $GHOSTTY_CONFIG_PATH ~/.config/ghostty/config"
 echo "installing ghostty config via a symlink:\n$INSTALL_CMD"
 eval "$INSTALL_CMD"
 
+# install finicky config file via symlink
+FINICKY_CONFIG_PATH=$(dirname "$SCRIPT_PATH")/finicky/.finicky.ts
+INSTALL_CMD="ln -sfn $FINICKY_CONFIG_PATH ~/.finicky.ts"
+echo "installing finicky config via a symlink:\n$INSTALL_CMD"
+eval "$INSTALL_CMD"
+
 # TODO move the symlink + printing logic into a funciton
