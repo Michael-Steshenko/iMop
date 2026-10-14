@@ -112,69 +112,75 @@ local wf = hs.window.filter.defaultCurrentSpace
 ---  * The AppWindowSwitcher object
 function obj:bindHotkeys(mapping)
     for matchtexts, modsKey in pairs(mapping) do
-        if type(matchtexts) == "string" then
-            matchtexts = { matchtexts }
-        end
-
-        -- Simple matcher: match either bundleID or app-name prefix
-        local function matches(win)
-            local app = win and win:application()
-            if not app then return false end
-            local bid  = app:bundleID()
-            local name = app:title()
-            for _, t in ipairs(matchtexts) do
-                if t == bid or obj.startswith(name, t) then
-                    return true
-                end
-            end
-            return false
-        end
-
         local mods, key = table.unpack(modsKey)
-
-        hs.hotkey.bind(mods, key, function()
-            local focused = hs.window.focusedWindow()
-            local focusedMatches = focused and matches(focused)
-            local newW = nil
-
-            -- Single pass using the window.filter cache (current Space, visible)
-            local ordered = wf:getWindows()
-            if focusedMatches then
-                for _, w in ipairs(ordered) do
-                    if matches(w) then newW = w end  -- last match
-                end
-            else
-                for _, w in ipairs(ordered) do
-                    if matches(w) then newW = w; break end
-                end
-            end
-
-            if newW then
-                local alreadyFocused = focused and (newW == focused or newW:id() == focused:id())
-                if not alreadyFocused then
-                    newW:raise():focus()
-                end
-
-                local frame = newW:frame()
-                local mouse = hs.mouse.absolutePosition()
-                local cursorInside = mouse.x >= frame.x and mouse.x <= (frame.x + frame.w) and
-                                     mouse.y >= frame.y and mouse.y <= (frame.y + frame.h)
-
-                if not (alreadyFocused and cursorInside) then
-                    hs.mouse.absolutePosition(frame.center)
-                end
-            else
-                local target = matchtexts[1]
-                if target and target:find("%.") then
-                    hs.application.launchOrFocusByBundleID(target)
-                else
-                    hs.application.launchOrFocus(target)
-                end
-            end
-        end)
+        hs.hotkey.bind(mods, key, function() self:switchTo(matchtexts) end)
     end
 
     return self
+end
+
+--- AppWindowSwitcher:switchTo(matchtexts)
+--- Method
+--- Focuses (cycling) a window matching matchtexts and centers the mouse on it,
+--- or launches the first matchtext if no matching window is open.
+--- Exposed so callers other than bindHotkeys (e.g. key chords) behave the same.
+function obj:switchTo(matchtexts)
+    if type(matchtexts) == "string" then
+        matchtexts = { matchtexts }
+    end
+
+    -- Simple matcher: match either bundleID or app-name prefix
+    local function matches(win)
+        local app = win and win:application()
+        if not app then return false end
+        local bid  = app:bundleID()
+        local name = app:title()
+        for _, t in ipairs(matchtexts) do
+            if t == bid or obj.startswith(name, t) then
+                return true
+            end
+        end
+        return false
+    end
+
+    local focused = hs.window.focusedWindow()
+    local focusedMatches = focused and matches(focused)
+    local newW = nil
+
+    -- Single pass using the window.filter cache (current Space, visible)
+    local ordered = wf:getWindows()
+    if focusedMatches then
+        for _, w in ipairs(ordered) do
+            if matches(w) then newW = w end  -- last match
+        end
+    else
+        for _, w in ipairs(ordered) do
+            if matches(w) then newW = w; break end
+        end
+    end
+
+    if newW then
+        local alreadyFocused = focused and (newW == focused or newW:id() == focused:id())
+        if not alreadyFocused then
+            newW:raise():focus()
+        end
+
+        local frame = newW:frame()
+        local mouse = hs.mouse.absolutePosition()
+        local cursorInside = mouse.x >= frame.x and mouse.x <= (frame.x + frame.w) and
+                             mouse.y >= frame.y and mouse.y <= (frame.y + frame.h)
+
+        if not (alreadyFocused and cursorInside) then
+            hs.mouse.absolutePosition(frame.center)
+        end
+    else
+        local target = matchtexts[1]
+        if target and target:find("%.") then
+            hs.application.launchOrFocusByBundleID(target)
+        else
+            hs.application.launchOrFocus(target)
+        end
+    end
 end
 
 return obj

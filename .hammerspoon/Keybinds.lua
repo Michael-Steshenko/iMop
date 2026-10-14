@@ -5,8 +5,8 @@ local hyper = Config.hyper
 
 -- Prefer bundle app Ids over app names if possible
 -- i.e. prefer "org.mozilla.firefox" over "Firefox"
-hs.loadSpoon("LaunchSwitch")
-  :bindHotkeys({
+local launchSwitch = hs.loadSpoon("LaunchSwitch")
+launchSwitch:bindHotkeys({
 
     -- To find the bundle id of an app use: osascript -e 'id of app "AppName"'
 
@@ -107,8 +107,8 @@ function appleMusicMode()
     elseif key == hs.keycodes.map['h'] then -- Help
       hs.alert.show("F: Favorite\nU: Unfavorite\nL: Suggest less")
     elseif key == hs.keycodes.map[appleMusicKey] then -- Launch Apple Music
-      hs.application.launchOrFocusByBundleID("com.apple.Music")
       evtap:stop()
+      launchSwitch:switchTo({"com.apple.Music"})
     elseif key == hs.keycodes.map['F'] then -- Favorite
       favorite()
       evtap:stop()
