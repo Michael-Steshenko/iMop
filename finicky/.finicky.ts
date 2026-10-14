@@ -7,6 +7,8 @@ const chrome = (profile: string) => ({ name: 'Google Chrome', profile });
 export default {
   // everything that doesn't match a handler opens in the main profile
   defaultBrowser: chrome('Michael'),
+  // no menu bar icon; open Finicky.app directly to get its window
+  options: { hideIcon: true },
   handlers: [
     { match: (url) => url.host === 'localhost:9441', browser: chrome('Michael') },
     { match: (url) => url.host === 'localhost:9442', browser: chrome('Michael 2') },
